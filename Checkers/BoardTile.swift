@@ -9,6 +9,12 @@
 import UIKit
 
 class BoardTile: UIView {
+    
+    enum tileStatus{
+        case empty
+        case hasRedTile
+        case hasBlackTile
+    }
 
     var color: CGColor!;
     var hasPiece:Bool!;

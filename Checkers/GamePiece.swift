@@ -10,12 +10,7 @@ import UIKit
 
 class GamePiece: UIView {
     var color:pieceColor = .black
-    
-    enum pieceColor {
-        case empty
-        case red
-        case black
-    }
+  
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
