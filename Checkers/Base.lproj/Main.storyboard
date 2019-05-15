@@ -18,22 +18,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qzi-YP-Ui0" userLabel="Board View" customClass="Board" customModule="Checkers" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DyA-2T-36x" userLabel="Board View" customClass="Board" customModule="Checkers" customModuleProvider="target">
                                 <rect key="frame" x="10" y="94" width="394" height="394"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="qzi-YP-Ui0" secondAttribute="height" multiplier="1:1" id="8R1-7p-jyI"/>
+                                    <constraint firstAttribute="width" secondItem="DyA-2T-36x" secondAttribute="height" multiplier="1:1" id="NjH-Zu-PVh"/>
                                 </constraints>
+                                <viewLayoutGuide key="safeArea" id="Hml-uc-jme"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="qzi-YP-Ui0" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="GXX-qF-eqh"/>
-                            <constraint firstItem="qzi-YP-Ui0" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Hbo-Lf-Vju"/>
-                            <constraint firstItem="qzi-YP-Ui0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="y6c-5I-Fii"/>
+                            <constraint firstItem="DyA-2T-36x" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="ZJe-wv-dAR"/>
+                            <constraint firstItem="DyA-2T-36x" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="dbg-sV-kbh"/>
+                            <constraint firstItem="DyA-2T-36x" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="egs-Hm-de3"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="board" destination="DyA-2T-36x" id="9E8-c3-fcv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

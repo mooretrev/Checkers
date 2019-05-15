@@ -57,6 +57,7 @@ class Board: UIView {
             if(addToList){
                 boardTiles.append(tile);
             }
+            addToList = false;
             self.addSubview(tile);
          }
  
