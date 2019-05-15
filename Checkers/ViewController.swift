@@ -9,10 +9,16 @@
 import UIKit
 
 class ViewController: UIViewController {
+
+    @IBOutlet weak var board: Board!
+    var panGesture  = UIPanGestureRecognizer()
+    var gamePiece:GamePiece = GamePiece(frame: CGRect(x: 10, y: 100, width: 200, height: 200), color: .black)
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewDidLoad(){
         
     }
+    
+        
+        
     
 }
