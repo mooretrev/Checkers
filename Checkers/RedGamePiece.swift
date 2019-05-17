@@ -9,6 +9,7 @@
 import UIKit
 
 class RedGamePiece: GamePiece {
+    static var finished: Bool = true;
     
     init(frame: CGRect, position: MatrixPosition) {
         super.init(frame: frame, color: .red, position: position)
@@ -31,4 +32,14 @@ class RedGamePiece: GamePiece {
     override func confirmLegalJump(jump position: MatrixPosition) -> Bool{
         return Board.tiles[position.row + 1][position.col - position.direction.rawValue].status == .black
     }
+    
+    override func changeTurn() {
+        RedGamePiece.finished = true
+        BlackGamePiece.finished = false
+    }
+    
+    override func isTurn() -> Bool {
+        return !RedGamePiece.finished
+    }
+
 }

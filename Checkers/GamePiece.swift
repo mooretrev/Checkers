@@ -72,7 +72,7 @@ class GamePiece: UIView {
     func determineValueMove(){
         let possiblePosition:[MatrixPosition] = moveType()
         for i in possiblePosition{
-            if(Board.tiles[i.row][i.col].canHoldGamePiece()){
+            if(canMove(position: i)){
                 if(i.jump){
                     if(confirmLegalJump(jump: i)){
                         gamePieceJumped(position: matrixPosition, direction: i.direction)
@@ -83,10 +83,15 @@ class GamePiece: UIView {
                 Board.tiles[i.row][i.col].status = self.status
                 Board.tiles[i.row][i.col].gamePiece = self
                 matrixPosition = i
+                changeTurn()
                 return
             }
         }
         center = start
+    }
+    func canMove(position i: MatrixPosition) -> Bool{
+        return Board.tiles[i.row][i.col].canHoldGamePiece() && determinePlacedWithinTile(tile: Board.tiles[i.row][i.col]) && isTurn()
+        
     }
     func determinePlacedWithinTile(tile: BoardTile) -> Bool{
         if(center.x >= tile.frame.minX && center.x <= tile.frame.maxX && center.y >= tile.frame.minY && center.y <= tile.frame.maxY){return true}
@@ -108,6 +113,14 @@ class GamePiece: UIView {
     }
     
     func moveType()->[MatrixPosition]{
+        fatalError("Cannot create an instance of GamePiece use subclasses")
+    }
+    
+    func changeTurn(){
+        fatalError("Cannot create an instance of GamePiece use subclasses")
+    }
+    
+    func isTurn() -> Bool{
         fatalError("Cannot create an instance of GamePiece use subclasses")
     }
     /////OVERRIDE FUNCTIONS///////////////////////END
