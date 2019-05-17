@@ -12,6 +12,10 @@
 		26583C05226FA28800367750 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26583C04226FA28800367750 /* ViewController.swift */; };
 		26583C08226FA28800367750 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26583C06226FA28800367750 /* Main.storyboard */; };
 		26583C0A226FA28900367750 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26583C09226FA28900367750 /* Assets.xcassets */; };
+		266BED8A228E663500E5F9BE /* RedGamePiece.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266BED89228E663500E5F9BE /* RedGamePiece.swift */; };
+		266BED8C228E685D00E5F9BE /* BlackGamePiece.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266BED8B228E685D00E5F9BE /* BlackGamePiece.swift */; };
+		26BDB814228C99730001215A /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26BDB813228C99730001215A /* Config.swift */; };
+		26BDB816228DF1900001215A /* MatrixPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26BDB815228DF1900001215A /* MatrixPosition.swift */; };
 		26EEDDB0226FAD970021DB3D /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EEDDAF226FAD970021DB3D /* Board.swift */; };
 		26EEDDB2226FDE8A0021DB3D /* BoardTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EEDDB1226FDE8A0021DB3D /* BoardTile.swift */; };
 /* End PBXBuildFile section */
@@ -24,6 +28,10 @@
 		26583C07226FA28800367750 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		26583C09226FA28900367750 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		26583C0E226FA28900367750 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		266BED89228E663500E5F9BE /* RedGamePiece.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedGamePiece.swift; sourceTree = "<group>"; };
+		266BED8B228E685D00E5F9BE /* BlackGamePiece.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackGamePiece.swift; sourceTree = "<group>"; };
+		26BDB813228C99730001215A /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		26BDB815228DF1900001215A /* MatrixPosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatrixPosition.swift; sourceTree = "<group>"; };
 		26EEDDAF226FAD970021DB3D /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
 		26EEDDB1226FDE8A0021DB3D /* BoardTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardTile.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -65,7 +73,11 @@
 				26583C0E226FA28900367750 /* Info.plist */,
 				26EEDDAF226FAD970021DB3D /* Board.swift */,
 				26EEDDB1226FDE8A0021DB3D /* BoardTile.swift */,
+				26BDB813228C99730001215A /* Config.swift */,
 				2628936822763C79002AA061 /* GamePiece.swift */,
+				266BED89228E663500E5F9BE /* RedGamePiece.swift */,
+				266BED8B228E685D00E5F9BE /* BlackGamePiece.swift */,
+				26BDB815228DF1900001215A /* MatrixPosition.swift */,
 			);
 			path = Checkers;
 			sourceTree = "<group>";
@@ -140,11 +152,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				266BED8A228E663500E5F9BE /* RedGamePiece.swift in Sources */,
 				26EEDDB2226FDE8A0021DB3D /* BoardTile.swift in Sources */,
 				26583C05226FA28800367750 /* ViewController.swift in Sources */,
 				2628936922763C79002AA061 /* GamePiece.swift in Sources */,
 				26583C03226FA28800367750 /* AppDelegate.swift in Sources */,
 				26EEDDB0226FAD970021DB3D /* Board.swift in Sources */,
+				266BED8C228E685D00E5F9BE /* BlackGamePiece.swift in Sources */,
+				26BDB816228DF1900001215A /* MatrixPosition.swift in Sources */,
+				26BDB814228C99730001215A /* Config.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

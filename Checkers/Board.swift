@@ -9,39 +9,35 @@
 import UIKit
 
 class Board: UIView {
-    var boardTiles:[BoardTile] = [];
+    static var tiles:[[BoardTile]] = Array(repeating: Array(repeating: BoardTile(frame: CGRect(x: 0, y: 0, width: 10, height: 10), color: UIColor.black.cgColor), count: 10), count: 10) //this holds the tiles that a game can move to
+    var tileSize:Double!
     
-    
+    //Constructor
     required init(coder aDecoder: NSCoder){
         super.init(coder: aDecoder)!;
-        setupBoard(frame: bounds);
+        tileSize = (Double)(bounds.height / 10.0);
+        setupBoard()
+        addGamePieces()
     }
     
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
     
-    func setupBoard(frame: CGRect){
-        let tileSize:Double = (Double)(frame.height / 10.0);
+    //Places the titles on the board and get the tiles the game pieces can move to
+    func setupBoard(){
         var row:Int = -1;
         var square:CGRect;
-        var x:Int;
-        var tile:BoardTile = BoardTile(frame: frame, color: UIColor.black.cgColor);
-        var addToList:Bool = false;
+        var col:Int;
+        var tile:BoardTile = BoardTile(frame: bounds, color: UIColor.black.cgColor);
         
         for i in 0...99 {
             square = CGRect(x: 0, y: 0, width: tileSize, height: tileSize);
-            x = i % 10;
-            if(x == 0){
+            col = i % 10;
+            if(col == 0){
                 row = row + 1;
                 
             }
             if(row % 2 == 0){
                 if(i % 2 == 0){
                     tile = BoardTile(frame: square, color: UIColor.red.cgColor)
-                    addToList = true;
                 }else{
                     tile = BoardTile(frame: square, color: UIColor.black.cgColor)
                 }
@@ -50,21 +46,41 @@ class Board: UIView {
                     tile = BoardTile(frame: square, color: UIColor.black.cgColor)
                 }else{
                     tile = BoardTile(frame: square, color: UIColor.red.cgColor)
-                    addToList = true;
                 }
             }
-            tile.center = CGPoint(x: tile.center.x + (CGFloat)(x) * (CGFloat)(tileSize), y: tile.center.y + (CGFloat)(row) * (CGFloat)(tileSize))
-            if(addToList){
-                boardTiles.append(tile);
-            }
-            addToList = false;
+            tile.center = CGPoint(x: tile.center.x + (CGFloat)(col) * (CGFloat)(tileSize), y: tile.center.y + (CGFloat)(row) * (CGFloat)(tileSize))
+            Board.tiles[row][col] = tile;
             self.addSubview(tile);
          }
- 
         square = CGRect(x: 0, y: 0, width: tileSize, height: tileSize);
- 
+    }
+    
+    //This adds the pieces to the Board
+    func addGamePieces(){
+        for r in 0...2{
+            for c in 0...9{
+                if(Board.tiles[r][c].moveable){
+                    
+                    let gamePiece:GamePiece = BlackGamePiece(frame: CGRect(x: 0, y: 0, width: tileSize, height: tileSize), position: MatrixPosition(row: r, col: c))
+                    gamePiece.center = Board.tiles[r][c].center
+                    Board.tiles[r][c].status = .black
+                    Board.tiles[r][c].gamePiece = gamePiece
+                    addSubview(gamePiece)
+                }
+            }
+        }
         
-        
+        for r in 7...9{
+            for c in 0...9{
+                if(Board.tiles[r][c].moveable){
+                    let gamePiece:GamePiece = RedGamePiece(frame: CGRect(x: 0, y: 0, width: tileSize, height: tileSize), position: MatrixPosition(row: r, col: c))
+                    gamePiece.center = Board.tiles[r][c].center
+                    Board.tiles[r][c].status = .red
+                    Board.tiles[r][c].gamePiece = gamePiece
+                    addSubview(gamePiece)
+                }
+            }
+        }
         
     }
 
